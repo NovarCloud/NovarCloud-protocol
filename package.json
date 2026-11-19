@@ -1,0 +1,15 @@
+{
+  "name": "novar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Novar — a quicker lane for Solana. Static site, zero runtime dependencies.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.mjs && node scripts/verify.mjs",
+    "build:only": "node build.mjs",
+    "verify": "node scripts/verify.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

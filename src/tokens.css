@@ -1,0 +1,93 @@
+/* ==========================================================================
+   NOVAR design tokens — the ONLY file in the project allowed to hold colour literals.
+
+   PALETTE PROVENANCE (sampled by pixel from brand/ assets, never invented)
+   - brand/LOGO NOVAR PNG.png        IHDR 2000x2000 8-bit colortype 6, alpha min=max=255,
+                                     pixel (5,5) = rgb(10,27,47)            -> --c-bg
+   - brand/LOGO NOVAR PNG...png      IHDR 2000x2000 8-bit colortype 6, 85.61% alpha 0 (all RGB 0,0,0 = pure black),
+                                     14.39% semi-alpha; 7x7 mean of each hexagon ring body:
+                                       top  #b4e3fb  -> --c-ring-1      upper-left  #37a9fb -> --c-ring-2
+                                       upper-right #1276f2 -> --c-ring-3  centre  #0051cf -> --c-ring-4
+                                       lower-left  #0873fb -> --c-ring-5  lower-right #0029a4 -> --c-ring-6
+                                       bottom #0f6cf7 -> --c-ring-7
+                                     lightest opaque pixel #f9ffff -> --c-lightest ; darkest #002eb8 -> --c-darkest
+   - #00ffcc                         mint, specified by the project brief for the own-token pulse -> --c-mint
+   Everything else below is derived with color-mix() from those tokens.
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+
+  /* sampled */
+  --c-bg: #0a1b2f;
+  --c-ring-1: #b4e3fb;
+  --c-ring-2: #37a9fb;
+  --c-ring-3: #1276f2;
+  --c-ring-4: #0051cf;
+  --c-ring-5: #0873fb;
+  --c-ring-6: #0029a4;
+  --c-ring-7: #0f6cf7;
+  --c-lightest: #f9ffff;
+  --c-darkest: #002eb8;
+  --c-mint: #00ffcc;
+
+  /* semantic (derived) */
+  --ground: color-mix(in oklab, var(--c-bg) 62%, black);
+  --ground-deep: color-mix(in oklab, var(--c-bg) 30%, black);
+  --surface: color-mix(in oklab, var(--c-bg) 88%, var(--c-ring-4));
+  --surface-2: color-mix(in oklab, var(--c-bg) 76%, var(--c-ring-4));
+  --line: color-mix(in oklab, var(--c-ring-1) 13%, transparent);
+  --line-strong: color-mix(in oklab, var(--c-ring-1) 28%, transparent);
+  --ink: var(--c-lightest);
+  --ink-2: color-mix(in oklab, var(--c-lightest) 72%, var(--c-bg));
+  --ink-3: color-mix(in oklab, var(--c-lightest) 48%, var(--c-bg));
+  --accent: var(--c-ring-3);
+  --color-accent: var(--c-ring-3);
+  --accent-hi: var(--c-ring-2);
+  --accent-ink: var(--c-bg);
+  --glow: color-mix(in oklab, var(--c-ring-2) 55%, transparent);
+  --specimen: color-mix(in oklab, var(--c-lightest) 94%, var(--c-ring-1));
+  --specimen-ink: var(--c-bg);
+  --specimen-ink-2: color-mix(in oklab, var(--c-bg) 62%, var(--c-lightest));
+  --specimen-line: color-mix(in oklab, var(--c-bg) 14%, transparent);
+  --up: var(--c-mint);
+  --down: color-mix(in oklab, var(--c-ring-1) 62%, var(--c-bg));
+  --lift: inset 0 1px 0 color-mix(in oklab, var(--c-lightest) 6%, transparent);
+  --lift-strong: inset 0 1px 0 color-mix(in oklab, var(--c-lightest) 32%, transparent);
+  --veil: color-mix(in oklab, var(--ground) 82%, transparent);
+  --shade: color-mix(in oklab, black 55%, transparent);
+
+  /* type — values follow the studied reference scale */
+  --f-display: "Segoe UI Variable Display", "Segoe UI", "Helvetica Neue", Inter, system-ui, sans-serif;
+  --f-text: "Segoe UI Variable Text", "Segoe UI", "Helvetica Neue", Inter, system-ui, sans-serif;
+  --f-data: "Cascadia Mono", "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --t-display: clamp(2.5rem, 1.4rem + 3.6vw, 4.75rem);
+  --t-display-lh: 0.96;
+  --t-display-tr: -0.042em;
+  --t-hero-tr: -0.042em;
+  --t-hero: clamp(3rem, 1.2rem + 6.4vmin, 7.25rem);
+  --t-hero-lh: 0.92;
+  --t-h1: clamp(2rem, 1.2rem + 1.8vw, 3rem);
+  --t-h2: 1.625rem;
+  --t-h3: 1.1875rem;
+  --t-body: 1rem;
+  --t-ui: 0.875rem;
+  --t-small: 0.8125rem;
+  --t-read: 0.75rem;
+  --t-figure: clamp(2rem, 1.5rem + 1.6vw, 2.75rem);
+
+  /* spacing */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px;
+  --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px; --s10: 144px;
+  --edge: clamp(16px, 3.2vw, 40px);
+  --container: 1360px;
+
+  /* shape */
+  --r-ctl: 10px; --r-card: 16px; --r-cmd: 15px; --r-lg: 13px; --r-chip: 3px;
+  --hair: 1px;
+
+  /* motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-snap: cubic-bezier(0.7, 0, 0.2, 1);
+  --ease-line: cubic-bezier(0.16, 1, 0.3, 1);
+  --d-press: 90ms; --d-ui: 180ms; --d-panel: 320ms; --d-roll: 520ms;
+}

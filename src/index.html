@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{NAME}} — a quicker lane for Solana</title>
+<meta name="description" content="Novar is a speed layer for Solana: fast slots, shared authorship and a live market board.">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="{{NAME}} — a quicker lane for Solana">
+<meta property="og:description" content="A speed layer for Solana with a live market board.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="apple-touch-icon" href="assets/apple-touch.png" sizes="180x180">
+<link rel="preload" href="assets/logo-512.png" as="image">
+<link rel="stylesheet" href="css/app.css">
+<script>
+  /* motion gate: reveal styles only apply when scripting is on and the visitor has not asked for reduced motion */
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try { if (!matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('motion'); } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Jump to main</a>
+
+<header class="top" id="top">
+  <div class="top-bar">
+    <a class="brand" href="#hero" aria-label="{{NAME}} home">
+      <img src="assets/logo-128.png" width="36" height="36" alt="">
+      <span class="brand-word">NOVAR</span>
+    </a>
+    <nav class="places" aria-label="Sections">
+      <a href="#market">Board</a>
+      <a href="#lane">Lane</a>
+      <a href="#rotation">Rotation</a>
+      <a href="#build">Build</a>
+    </nav>
+    <div class="socials">{{SOCIALS}}</div>
+  </div>
+  <div class="ca-wrap">{{CA_BAR}}</div>
+</header>
+
+<main id="main">
+  <!-- 1 · HERO -->
+  <section class="hero" id="hero" data-hero>
+    <div class="hero-bg" data-arrive="tele" aria-hidden="true">
+      <div class="mesh mesh--a" data-depth="0.25"></div>
+      <div class="mesh mesh--b" data-depth="0.4"></div>
+      <div class="mesh mesh--c" data-depth="0.15"></div>
+      <svg class="lattice" data-depth="0.6" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><defs><pattern id="hexp" width="60" height="104" patternUnits="userSpaceOnUse" patternTransform="scale(1.1)"><path d="M30 0 60 17.3v34.6L30 69.3 0 51.9V17.3zM30 69.3v34.7M60 51.9 90 69.3M0 51.9-30 69.3" fill="none" stroke="currentColor" stroke-width="1"/></pattern></defs><rect width="400" height="400" fill="url(#hexp)"/></svg>
+    </div>
+    <div class="hero-frame wrap">
+      <div class="hero-copy" data-hero-copy>
+        <span class="pill" data-arrive="copy"><i class="live-dot" aria-hidden="true"></i><span data-status>Connecting</span></span>
+        <h1 class="hero-h1">
+          <span class="mask"><span data-arrive="l1">Solana,</span></span>
+          <span class="mask"><span data-arrive="l2">minus the wait.</span></span>
+        </h1>
+        <p class="hero-sub" data-arrive="sub">Novar is a speed layer for everything you already deploy. Slots land in fifty milliseconds, a trio of leaders writes each one, and your existing contracts carry over as they are.</p>
+        <div class="hero-actions" data-arrive="act">
+          <a class="btn btn-primary btn-lg" href="#market">Watch the board</a>
+          <a class="btn btn-secondary btn-lg" href="#lane">See the path</a>
+        </div>
+      </div>
+      <div class="hero-art" data-depth="1" data-arrive="side" aria-hidden="true">
+        <div class="art-glow"></div>
+        <img class="art-logo" src="assets/logo-512.png" width="512" height="512" alt="Novar hexagon logo" fetchpriority="high">
+      </div>
+      <dl class="figures" data-arrive="fig">
+        <div><dd>50<span>ms</span></dd><dt>Slot target</dt></div>
+        <div><dd>3</dd><dt>Leaders behind each slot</dt></div>
+        <div><dd>0</dd><dt>Rewrites for your code</dt></div>
+      </dl>
+    </div>
+    <span class="cue" data-arrive="cue" aria-hidden="true"><span></span></span>
+  </section>
+
+  <!-- ticker -->
+  <div class="ticker" aria-label="Live ticker" data-ticker>
+    <div class="ticker-track" data-ticker-track>
+      <span class="tick skel-tick"></span><span class="tick skel-tick"></span><span class="tick skel-tick"></span><span class="tick skel-tick"></span><span class="tick skel-tick"></span><span class="tick skel-tick"></span>
+    </div>
+  </div>
+
+  <!-- 2 · LANE: six beats -->
+  <section class="band" id="lane">
+    <div class="wrap">
+      <header class="head" data-reveal>
+        <p class="eyebrow">The lane</p>
+        <h2 class="t-h2">Six beats to settle each slot.</h2>
+        <p class="lede">Novar splits the labour for each slot among a trio of leaders, so a lone seat cannot stall progress or peek ahead. Here is the route each transaction travels.</p>
+      </header>
+      <ol class="steps" data-stagger>
+        <li data-reveal data-lift="18" style="--h:.9"><span class="step-n">01</span><span class="step-name">Intake</span><span class="step-what">Every leader collects a private batch of fresh transactions.</span></li>
+        <li data-reveal data-lift="18" style="--h:.75"><span class="step-n">02</span><span class="step-name">Lock</span><span class="step-what">Batches get wrapped, then a fingerprint is shared with the other two.</span></li>
+        <li data-reveal data-lift="18" style="--h:.6"><span class="step-n">03</span><span class="step-name">Cross-check</span><span class="step-what">Fingerprints are compared; a silent leader is skipped, never waited on.</span></li>
+        <li data-reveal data-lift="18" style="--h:.45"><span class="step-n">04</span><span class="step-name">Unwrap</span><span class="step-what">When the group is settled, all batches open together.</span></li>
+        <li data-reveal data-lift="18" style="--h:.3"><span class="step-n">05</span><span class="step-name">Sequence</span><span class="step-what">Everything lines up in a single queue, ranked by the tip senders attach.</span></li>
+        <li data-reveal data-lift="18" style="--h:.15"><span class="step-n">06</span><span class="step-name">Confirm</span><span class="step-what">Stake-weighted votes close each group of slots for good.</span></li>
+      </ol>
+      <figure class="timeline" data-reveal aria-hidden="true"><div class="timeline-track"><i></i></div><figcaption class="read">Beat tracker</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 3 · MARKET BOARD -->
+  <section class="band" id="market" data-market>
+    <div class="wrap">
+      <header class="head head--row" data-reveal>
+        <div>
+          <p class="eyebrow">Market board</p>
+          <h2 class="t-h2">What Solana is trading right now.</h2>
+          <p class="lede">The ten most boosted Solana tokens, refreshed every minute. Row one is reserved for Novar.</p>
+        </div>
+        <span class="pill pill--board"><i class="live-dot" aria-hidden="true"></i><span data-status>Connecting</span></span>
+      </header>
+      <div class="board" data-reveal>
+        <div class="board-head" aria-hidden="true"><span>Token</span><span>Price</span><span>24h</span><span>Volume</span><span>Liquidity</span></div>
+        <ol class="rows" id="board" aria-live="polite" aria-busy="true">
+          {{OWN_ROW}}
+        </ol>
+        <p class="board-note" id="board-note" role="status" hidden></p>
+        <noscript><p class="board-note">The live board needs scripting enabled.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · PAPER (light specimen panel) -->
+  <section class="band band--paper" id="paper">
+    <div class="wrap paper">
+      <div class="paper-corners"><span class="chip">Whitepaper</span><span class="chip chip--plain">Draft in progress</span></div>
+      <div class="paper-mid">
+        <div class="paper-art" data-reveal><img src="assets/logo-512.png" width="512" height="512" alt="" loading="lazy"></div>
+        <div class="paper-body" data-reveal>
+          <h2 class="paper-title">The case for a quicker Solana.</h2>
+          <p class="paper-lede">Design goals, token layout and the phased road ahead, written down in one place so anyone can check the thinking.</p>
+          <div class="paper-actions"><button class="btn btn-ink" type="button" disabled aria-disabled="true">Whitepaper opens soon</button></div>
+        </div>
+      </div>
+      <div class="paper-foot"><span class="chip chip--plain">Slot <b>50</b><span class="u">ms</span></span><span class="chip chip--plain">4 phases</span></div>
+    </div>
+  </section>
+
+  <!-- 5 · ROTATION (black band) -->
+  <section class="band band--black" id="rotation">
+    <div class="wrap rotation">
+      <div class="hexfield" data-hexfield aria-hidden="true"></div>
+      <div class="rotation-side" data-reveal>
+        <h2 class="t-h1">Leadership changes hands every beat.</h2>
+        <p class="lede">Seats pass in a repeating pattern, so influence never settles in one corner. Watch three of the seven cells take the lead, then hand over.</p>
+        <ol class="seats" data-seats>
+          <li><i></i>Seat A<b>leading</b></li><li><i></i>Seat B<b>leading</b></li><li><i></i>Seat C<b>leading</b></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · PARTS -->
+  <section class="band" id="parts">
+    <div class="wrap">
+      <h2 class="t-h2 parts-head" data-reveal>Novar is a lane and whatever grows beside it.</h2>
+      <div class="parts" data-stagger>
+        <article class="card" data-reveal data-lift="70" data-spot style="--f1:var(--c-ring-1);--f2:var(--c-ring-3)"><span class="card-field" aria-hidden="true"></span><div class="card-copy"><span class="card-eye">I</span><h3 class="card-title">Lane</h3><p>The live path your transactions travel, tuned for speed.</p></div></article>
+        <article class="card" data-reveal data-lift="70" data-spot style="--f1:var(--c-ring-2);--f2:var(--c-ring-6)"><span class="card-field" aria-hidden="true"></span><div class="card-copy"><span class="card-eye">II</span><h3 class="card-title">Node kit</h3><p>Software for running a seat yourself.</p></div></article>
+        <article class="card" data-reveal data-lift="70" data-spot style="--f1:var(--c-ring-5);--f2:var(--c-ring-4)"><span class="card-field" aria-hidden="true"></span><div class="card-copy"><span class="card-eye">III</span><h3 class="card-title">Proving ground</h3><p>A test bench where stress and foul play are replayed against the lane.</p></div></article>
+        <article class="card" data-reveal data-lift="70" data-spot style="--f1:var(--c-ring-7);--f2:var(--c-darkest)"><span class="card-field" aria-hidden="true"></span><div class="card-copy"><span class="card-eye">IV</span><h3 class="card-title">Seat registry</h3><p>The ledger of who holds a seat and how they joined.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · BUILD -->
+  <section class="band" id="build">
+    <div class="wrap build">
+      <div class="build-col" data-reveal data-slide="-1">
+        <p class="eyebrow">Builders</p>
+        <p class="build-code">Same code. Quicker beat.</p>
+        <p class="muted">Point the tooling you already use at the network. Endpoints for the lane will be posted here when they go live; until then, the public reference node below is all you need.</p>
+        <div class="cmd"><code>{{RPC}}</code><button class="copy" type="button" data-copy="{{RPC}}"><span data-feedback aria-live="polite">Copy</span></button></div>
+      </div>
+      <div class="build-col" data-reveal data-slide="1">
+        <p class="eyebrow">Holders</p>
+        <p class="build-code">Verify before you trust.</p>
+        <p class="muted">Only one address counts. Compare anything you see elsewhere with the address pinned to the top of this page.</p>
+        {{CA_CHIP}}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · CLOSE -->
+  <section class="close" id="close">
+    <div class="close-field" aria-hidden="true"></div>
+    <div class="wrap close-in" data-reveal data-lift="50" data-scale="0.94">
+      <h2 class="t-display">The lane is open.</h2>
+      <a class="btn btn-primary btn-lg" href="#market">Enter the board</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#hero" aria-label="{{NAME}} home"><img src="assets/logo-128.png" width="36" height="36" alt=""><span class="brand-word">NOVAR</span></a>
+      <p class="foot-line">Solana, faster.</p>
+      {{CA_CHIP}}
+    </div>
+    <nav class="foot-col" aria-label="Explore"><h2>Explore</h2><a href="#market">Board</a><a href="#lane">Lane</a><a href="#rotation">Rotation</a></nav>
+    <nav class="foot-col" aria-label="Build"><h2>Build</h2><a href="#build">Reference node</a><a href="#parts">Parts</a></nav>
+    <nav class="foot-col" aria-label="Source"><h2>Source</h2><span class="is-inert-link" aria-disabled="true">Whitepaper</span></nav>
+  </div>
+  <div class="wrap foot-base"><span class="read">{{NAME}} · {{DOMAIN}} · Markets move; nothing here is advice.</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg><span data-toast-text>Copied</span></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
